@@ -3,9 +3,9 @@
  */
 import { createApp } from './app'
 
-// import {getTime2} from '../../lib/myDate.js'
-// import getTime from '../../lib/myDate.js'
-// console.log(getTime2(), getTime());
+import {getTime2} from '../../lib/myDate.js'
+import getTime from '../../lib/myDate.js'
+console.log(getTime2(), getTime());
 
 export default context => {
     return new Promise((resolve, reject) => {

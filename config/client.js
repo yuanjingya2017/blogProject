@@ -13,7 +13,7 @@ const config = merge(base, {
     // },
     resolve: {
         alias: {
-            'page2Data': path.resolve(__dirname, '../web/lib/page2Data/clientData.js')       //换成绝对路径。代码中import from 'page2Data'都会被替换为这个
+            'page2Data': path.resolve(__dirname, '../src/lib/page2Data/clientData.js')       //换成绝对路径。代码中import from 'page2Data'都会被替换为这个
         }
     },
     plugins: [
