@@ -1,8 +1,13 @@
 <template>
     <div id="app" v-on:click="change">
-        <h1>{{ msg }}</h1>
+        <h1 v-for="(item, index) in appData.arr" :key="index">{{item}}</h1>
+        <h1>{{appData.msg}}</h1>
         <h2>page1</h2>
-        <ul>
+        <h3 v-for="(item, index) in appData.mongoDBdata" :key="index">
+            loginname: {{item.loginname}}
+            email: {{item.email}}
+        </h3>
+        <!-- <ul>
             <li>
                 <router-link to="/">home</router-link>
             </li>
@@ -10,7 +15,7 @@
                 <router-link to="/about">about</router-link>
             </li>
         </ul>
-        <router-view></router-view>
+        <router-view></router-view> -->
     </div>
 </template>
 
@@ -18,8 +23,15 @@
 export default {
     name: 'app',
     data() {
+        console.log(this.appData, '=====appData')
         return {
-            msg: 'Welcome to Your Vue.js App'
+            msg: 'Welcome to Your Vue.js App',
+            arr: []
+        }
+    },
+    props: {
+        appData: {
+            type: Object
         }
     },
     methods: {

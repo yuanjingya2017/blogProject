@@ -19,7 +19,8 @@ module.exports = merge(base, {
     },
     resolve: {
         alias: {
-            'page2Data': path.resolve(__dirname, '../src/lib/page2Data/nodejsData.js')
+            'page2Data': path.resolve(__dirname, '../src/lib/page2Data/nodejsData.js'),
+            '@backend': path.resolve(__dirname, '../src/backend')
         }
     },
     plugins: [

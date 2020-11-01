@@ -25,6 +25,7 @@
     "cross-env": "^5.0.5",
     "express": "^4.16.2",
     "lru-cache": "^4.1.1",
+    "mongoose": "^5.5.2",
     "serve-favicon": "^2.4.5",
     "vue": "^2.5.9",
     "vue-router": "^3.4.8",
@@ -33,6 +34,7 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-stage-3": "^6.24.1",
     "chokidar": "^1.7.0",

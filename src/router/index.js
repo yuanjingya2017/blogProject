@@ -32,10 +32,10 @@
         dir: './src/pages/author1',                   //页面目录，默认有app.js作为入口
         title: 'author1',                             //生成html的title
         template: './src/pages/author1/index.html'      //特殊指定一个html
-    },
-    'page2': {
-        url: '/author2.html',                         //访问的url规则，用于express的get
-        dir: './src/pages/author2',                   //页面目录，默认有app.js作为入口
-        title: 'author2'                             //生成html的title
     }
+    // 'page2': {
+    //     url: '/author2.html',                         //访问的url规则，用于express的get
+    //     dir: './src/pages/author2',                   //页面目录，默认有app.js作为入口
+    //     title: 'author2'                             //生成html的title
+    // }
 } 

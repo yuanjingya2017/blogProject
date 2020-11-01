@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 
 export function createApp (data) {
+    console.log(data, '=====data')
     const app = new Vue({
         components: { App },                      //演示如何从初始化地方传递数据给子组件。这个页面不使用vuex，展示简单粗暴的方式，配合global event bus即可https://vuejs.org/v2/guide/components.html#Non-Parent-Child-Communication
         template: '<App :appData="appData"/>',
