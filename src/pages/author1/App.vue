@@ -3,10 +3,7 @@
         <h1 v-for="(item, index) in appData.arr" :key="index">{{item}}</h1>
         <h1>{{appData.msg}}</h1>
         <h2>page1</h2>
-        <h3 v-for="(item, index) in appData.mongoDBdata" :key="index">
-            loginname: {{item.loginname}}
-            email: {{item.email}}
-        </h3>
+        <h3>{{appData.mongoDBdata}}</h3>
         <!-- <ul>
             <li>
                 <router-link to="/">home</router-link>
