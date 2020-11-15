@@ -17,6 +17,10 @@
                 提交
             </div>
         </form>
+        <div v-for="item in commentList" :key="item.id">
+            {{item.name}}{{item.comments}}
+        </div>
+        <div @click="getCommentList">getCommentList</div>
         <!-- <ul>
             <li>
                 <router-link to="/">home</router-link>
@@ -30,7 +34,8 @@
 </template>
 
 <script>
-const axios = require('axios')
+import { sendComment, getCommentList } from '../../api/index'
+
 export default {
     name: 'app',
     data() {
@@ -38,10 +43,12 @@ export default {
         return {
             formdata: {
                 name: '',
-                comments: ''
+                comments: '',
+                articleId: '1',
             },
             msg: 'Welcome to Your Vue.js App',
-            arr: []
+            arr: [],
+            commentList: []
         }
     },
     props: {
@@ -59,10 +66,12 @@ export default {
         },
         async commit () {
             console.log(this.formdata)
-            let res2 = await new Promise((resolve, reject) => {
-                let res = axios.post('http://localhost:3000/comment/sendComment', this.formdata);
-                resolve(res)
-            })
+            let res2 = await sendComment(this.formdata)
+            console.log(res2)
+        },
+        async getCommentList () {
+            let res2 = await getCommentList(this.formdata.articleId)
+            this.commentList = res2.data.result
             console.log(res2)
         }
     },
