@@ -4,6 +4,19 @@
         <h1>{{appData.msg}}</h1>
         <h2>page1</h2>
         <h3>{{appData.mongoDBdata}}</h3>
+        <form>
+            <div>
+                <label for="name">昵称</label>
+                <input type="text" placeholder="请输入姓名" v-model="formdata.name" />
+            </div>
+            <div>
+                <label for="name">评论</label>
+                <input type="text" placeholder="请输入评论" v-model="formdata.comments" />
+            </div>
+            <div @click="commit">
+                提交
+            </div>
+        </form>
         <!-- <ul>
             <li>
                 <router-link to="/">home</router-link>
@@ -17,11 +30,16 @@
 </template>
 
 <script>
+const axios = require('axios')
 export default {
     name: 'app',
     data() {
         console.log(this.appData, '=====appData')
         return {
+            formdata: {
+                name: '',
+                comments: ''
+            },
             msg: 'Welcome to Your Vue.js App',
             arr: []
         }
@@ -35,9 +53,17 @@ export default {
         change (event) {
             // `event` 是原生 DOM 事件
             if (event) {
-                alert(event.target.tagName)
+                // alert(event.target.tagName)
             }
             this.msg = 'changed';
+        },
+        async commit () {
+            console.log(this.formdata)
+            let res2 = await new Promise((resolve, reject) => {
+                let res = axios.post('http://localhost:3000/comment/sendComment', this.formdata);
+                resolve(res)
+            })
+            console.log(res2)
         }
     },
 }
