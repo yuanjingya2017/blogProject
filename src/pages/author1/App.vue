@@ -77,14 +77,15 @@ export default {
         },
         async buryPoint () {
             let guid = sessionStorage.get('guid')
-            if (guid) {
-                // guid
-            } else {
+            let isNew = false
+            if (!guid) {
+                isNew = true
                 guid = guid()
                 sessionStorage.setItem('guid', guid)
             }
             let res = await buryPoint({
-                guid
+                guid,
+                isNew
             })
         }
     },
