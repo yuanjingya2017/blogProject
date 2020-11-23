@@ -34,7 +34,8 @@
 </template>
 
 <script>
-import { sendComment, getCommentList } from '../../api/index'
+import { sendComment, getCommentList, buryPoint } from '../../api/index'
+import { guid } from '../../common/js/tool'
 
 export default {
     name: 'app',
@@ -73,6 +74,18 @@ export default {
             let res2 = await getCommentList(this.formdata.articleId)
             this.commentList = res2.data.result
             console.log(res2)
+        },
+        async buryPoint () {
+            let guid = sessionStorage.get('guid')
+            if (guid) {
+                // guid
+            } else {
+                guid = guid()
+                sessionStorage.setItem('guid', guid)
+            }
+            let res = await buryPoint({
+                guid
+            })
         }
     },
 }
