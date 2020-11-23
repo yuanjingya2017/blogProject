@@ -21,6 +21,7 @@
             {{item.name}}{{item.comments}}
         </div>
         <div @click="getCommentList">getCommentList</div>
+        <div @click="buryPoint">test buryPoint</div>
         <!-- <ul>
             <li>
                 <router-link to="/">home</router-link>
@@ -76,15 +77,15 @@ export default {
             console.log(res2)
         },
         async buryPoint () {
-            let guid = sessionStorage.get('guid')
+            let guidStr = localStorage.getItem('guid')
             let isNew = false
-            if (!guid) {
+            if (!guidStr) {
                 isNew = true
-                guid = guid()
-                sessionStorage.setItem('guid', guid)
+                guidStr = guid()
+                localStorage.setItem('guid', guidStr)
             }
             let res = await buryPoint({
-                guid,
+                guid: guidStr,
                 isNew
             })
         }

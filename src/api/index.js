@@ -23,7 +23,7 @@ async function buryPoint (params) {
 }
 async function buryPoint (params) {
     let res2 = await new Promise((resolve, reject) => {
-        let res = axios.post('http://localhost:3000/comment/buryPoint', params);
+        let res = axios.post('http://localhost:3000/burypoint/buryPoint', params);
         resolve(res)
     })
     return res2
